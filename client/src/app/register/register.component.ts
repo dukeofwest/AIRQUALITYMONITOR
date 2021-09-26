@@ -20,7 +20,10 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this._auth.registerUser(this.registerUserData)
     .subscribe(
-      res => console.log(res),
+      res => {
+        //localStorage.setItem('token', res.token)
+        console.log(res)
+      },
       err => console.log(err)     
     )
     console.log(this._auth.registerUser);

@@ -1,1 +1,14 @@
-<p>details works!</p>
+<div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let country of details">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{country.countryName}}</h5>
+                <p class="card-text">{{country.flag}}</p>
+                <p class="card-text">{{country.population}}</p>
+                <p class="card-text">{{country.airQuality}}</p>
+                <p class="card-text">{{country.rankAirQuality}}</p>
+                <a href="#" class="btn btn-success">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

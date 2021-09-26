@@ -8,7 +8,7 @@ import { CountriesService } from '../countries.service';
 })
 export class CountriesComponent implements OnInit {
 
-  countries = []
+  countries: any = [];
 
   constructor(
     private _countriesService: CountriesService
