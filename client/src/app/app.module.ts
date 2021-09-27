@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { CountriesService } from './countries.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CountriesService } from './countries.service';
   ],
   providers: [
     AuthService,
+    AuthGuard,
     CountriesService
   ],
   bootstrap: [AppComponent]

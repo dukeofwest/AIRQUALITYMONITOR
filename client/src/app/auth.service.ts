@@ -2,10 +2,15 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
+interface tokenAuth {
+  token: string;
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   private _registerUrl = "http://localhost:3000/api/register";
@@ -16,11 +21,15 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  registerUser(user:any) {
+  registerUser(user:any):Observable<any> {
     return this.http.post(this._registerUrl, user)
   }
 
-  loginUser(user:any) {
+  loginUser(user:any):Observable<any> {
     return this.http.post(this._loginUrl, user)
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token')
   }
 }
