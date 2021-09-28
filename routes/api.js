@@ -15,6 +15,22 @@ mongoose.connect(db, err => {
     }
 })
 
+verifyToken(req, res, next); {
+    if(!req.headers.authorization) {
+        return res.status(401).send('Unauthorized request')
+    }
+    let token = req.headers.authorization.split(' ')[1]
+    if (token === 'null') {
+        return res.status(401).send('Unauthorized request')
+    }
+    let payload = jwt.verify(token, 'secretKey')
+    if (!payload) {
+        return res.status(401).send('Unauthorized request')
+    }
+    req.userId = payload.subject
+    next()
+}
+
 router.get('/', (req, res) => {
     res.send('FROM API route');
 })
@@ -47,7 +63,7 @@ router.post('/login', (req, res) => {
                 res.status(401).send('Invalid email')
             } else 
             //verify password
-            if (user.password != userData.password) {
+            if (user.password !== userData.password) {
                 res.status(401).send('Invalid password')
             } else {
                 //return user details if successful
@@ -121,7 +137,7 @@ router.get('/countries', (req, res) => {
     res.json(countries)
 })
 
-router.get('/details', (req, res) => {
+router.get('/details', verifyToken, (req, res) => {
     let countries = [
         {
             "_id": "1",

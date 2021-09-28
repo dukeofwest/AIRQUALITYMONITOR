@@ -24,12 +24,10 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/countries'])
-        console.log(res)
+        this._router.navigate(['/details'])
       },
       err => console.log(err)     
     )
-    console.log(this._authService.loginUser);
   }
 
 }
