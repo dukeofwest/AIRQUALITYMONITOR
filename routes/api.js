@@ -15,7 +15,7 @@ mongoose.connect(db, err => {
     }
 })
 
-verifyToken(req, res, next); {
+function verifyToken(req, res, next) {
     if(!req.headers.authorization) {
         return res.status(401).send('Unauthorized request')
     }

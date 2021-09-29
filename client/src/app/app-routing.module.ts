@@ -4,12 +4,12 @@ import { AuthGuard } from './auth.guard';
 import { CountriesComponent } from './countries/countries.component';
 import { DetailsComponent } from './details/details.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
     path: 'countries',
-    component: CountriesComponent
+    component: CountriesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'details',
@@ -19,10 +19,6 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
   },
   {
     path: '',

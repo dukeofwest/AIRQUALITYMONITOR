@@ -3,6 +3,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from "@angular/router";
 
 interface tokenAuth {
   token: string;
@@ -17,7 +18,8 @@ export class AuthService {
   private _loginUrl = "http://localhost:3000/api/login";
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private _router: Router
   ) { }
 
   registerUser(user:any):Observable<any> {
@@ -30,6 +32,11 @@ export class AuthService {
 
   loggedIn() {
     return !!localStorage.getItem('token')
+  }
+
+  logoutUser() {
+    localStorage.removeItem('token')
+    this._router.navigate(['/countries'])
   }
 
   getToken() {

@@ -1,4 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CountriesService } from '../countries.service';
 
 @Component({
@@ -11,14 +13,21 @@ export class CountriesComponent implements OnInit {
   countries: any = [];
 
   constructor(
-    private _countriesService: CountriesService
+    private _countriesService: CountriesService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
     this._countriesService.getCountries()
     .subscribe(
       res => this.countries = res,
-      err => console.log(err)
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this._router.navigate(['/login'])
+          }
+        }
+      }
     )
   }
 
