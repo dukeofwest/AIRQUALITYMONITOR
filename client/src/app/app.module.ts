@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 import { CountriesService } from './countries.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from "./token-interceptor.service";
+import { MatomoModule } from "ngx-matomo";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,19 @@ import { TokenInterceptorService } from "./token-interceptor.service";
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatomoModule.forRoot({
+      scriptUrl: '//matomo.example.com/matomo.js',
+      trackers: [
+        {
+          trackerUrl: 'http://matomo.example.com/matomo.php',
+          siteId: 1
+        }
+      ],
+      routeTracking: {
+        enable: true
+      }
+    }),
   ],
   providers: [
     AuthService,
