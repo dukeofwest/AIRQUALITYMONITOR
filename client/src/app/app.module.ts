@@ -29,10 +29,10 @@ import { MatomoModule } from "ngx-matomo";
     HttpClientModule,
     AppRoutingModule,
     MatomoModule.forRoot({
-      scriptUrl: '//matomo.example.com/matomo.js',
+      scriptUrl: '//cdn.matomo.cloud/airqualitymonitor.matomo.cloud/matomo.js',
       trackers: [
         {
-          trackerUrl: 'http://matomo.example.com/matomo.php',
+          trackerUrl: 'https://airqualitymonitor.matomo.cloud/',
           siteId: 1
         }
       ],
