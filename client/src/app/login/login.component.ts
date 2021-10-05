@@ -19,13 +19,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.matomoTracker.setUserId('UserId')
-    this.matomoTracker.setDocumentTitle('login')
   }
 
   loginUser() {
     console.log('click matomo');
-    this.matomoTracker.trackEvent('Login', 'Login Button Pressed', 'click login');
+    this.matomoTracker.trackEvent('login', 'login button pressed', 'click login');
     this._authService.loginUser(this.loginUserData)
     .subscribe(
       res => {
