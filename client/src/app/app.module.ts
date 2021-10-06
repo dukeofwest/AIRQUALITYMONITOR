@@ -14,6 +14,8 @@ import { CountriesService } from './countries.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from "./token-interceptor.service";
 import { MatomoModule } from "ngx-matomo";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,12 @@ import { MatomoModule } from "ngx-matomo";
       routeTracking: {
         enable: true
       }
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     }),
   ],
   providers: [
