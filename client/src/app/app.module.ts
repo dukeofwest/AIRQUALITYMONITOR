@@ -16,6 +16,7 @@ import { TokenInterceptorService } from "./token-interceptor.service";
 import { MatomoModule } from "ngx-matomo";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatomoModule.forRoot({
       scriptUrl: '//cdn.matomo.cloud/airqualitymonitor.matomo.cloud/matomo.js',

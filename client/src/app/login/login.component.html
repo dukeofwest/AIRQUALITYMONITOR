@@ -1,17 +1,22 @@
 <div class="py-5 px-5 mt-5">
     <div class="row">
       <div class="col-md-6 mx-auto">
-        <form class="form">
+        <!--<form class="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">-->
+          <form class="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
           <h1 class="h3 mb-3 font-weight-normal text-center">Login</h1>
   
           <label for="inputEmail" class="sr-only mb-4">Email address</label>
           <input [(ngModel)]="loginUserData.email" name="email" type="email" class="form-control"
-            placeholder="Email address" required="" autofocus="">
+            placeholder="Email address" formControlName="email">
+            <span class="error" *ngIf="email?.invalid && email?.touched">email is invalid</span>
   
           <label for="inputPassword" class="sr-only">Password</label>
           <input [(ngModel)]="loginUserData.password" name="password" type="password" class="form-control mt-2"
-            placeholder="Password" required="">
+            placeholder="Password" formControlName="password">
+            <span class="error" *ngIf="password?.invalid && password?.touched">password is invalid</span>
   
+          <!--<button (click)="loginUser()" [disabled]="loginForm.invalid" class="btn btn-success btn-block mt-4" id="loginID">Login</button>-->
+
           <button (click)="loginUser()" class="btn btn-success btn-block mt-4" id="loginID">Login</button>
         </form>
       </div>
