@@ -1,13 +1,13 @@
 <div class="row">
-    <div class="col-md-12 mb-3" *ngFor="let country of countries">
+    <div class="col-md-4 mb-3 mt-4" *ngFor="let country of countries">   
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">{{country.countryName}}</h5>
-                <p class="card-text">{{country.flag}}</p>
-                <p class="card-text">{{country.population}}</p>
-                <p class="card-text">{{country.airQuality}}</p>
-                <p class="card-text">{{country.rankAirQuality}}</p>
-                <a href="/details" class="btn btn-primary">Details</a>
+                <p class="card-text"><b>isoCode: </b>{{country.flag}}</p>
+                <p class="card-text"><b>Population: </b>{{country.population}}</p>
+                <p class="card-text"><b>Air Quality: </b>{{country.airQuality}}</p>
+                <p class="card-text"><b>Country Rank: </b>{{country.rankAirQuality}}</p>    
+                <a [routerLink]="['/details', country._id]" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>

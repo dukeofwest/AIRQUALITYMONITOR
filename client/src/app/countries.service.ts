@@ -6,18 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class CountriesService {
 
-  private _countriesUrl = "http://localhost:3000/api/countries";
-  private _detailsUrl = "http://localhost:3000/api/details";
+  private baseUrl = 'http://localhost:3000/api'
 
   constructor(
     private http: HttpClient
   ) { }
 
   getCountries() {
-    return this.http.get<any>(this._countriesUrl)
+    return this.http.get<any>(`${this.baseUrl}/countries`)
   }
 
-  getDetails() {
-    return this.http.get<any>(this._detailsUrl)
+  getDetails(id:string) {
+    return this.http.get<any>(`${this.baseUrl}/details/${id}`)
   }
 }

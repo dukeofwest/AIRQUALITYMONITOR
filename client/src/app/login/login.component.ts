@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
       [
         Validators.required, 
         Validators.minLength(8), 
-        Validators.pattern('[a-zA-Z0-9 ]*')
+        Validators.pattern('[a-zA-Z0-9._ ]*')
       ])
   })
 
@@ -40,10 +40,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password')
   }
 
-  /*onLogin() {
-    console.warn(this.loginForm.value)
-  }*/
-
   loginUser() {
     console.log('click matomo');
     console.warn(this.loginForm.value)
@@ -52,7 +48,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/details'])
+        this._router.navigate(['/countries'])
       },
       err => console.log(err)     
     )

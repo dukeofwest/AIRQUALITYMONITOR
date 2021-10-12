@@ -13,7 +13,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'details',
+    path: 'details/:_id',
     component: DetailsComponent,
     canActivate: [AuthGuard]
   },
