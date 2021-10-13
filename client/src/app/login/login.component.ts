@@ -41,8 +41,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    console.log('click matomo');
-    console.warn(this.loginForm.value)
     this.matomoTracker.trackEvent('login', 'login button pressed', 'click login');
     this._authService.loginUser(this.loginUserData)
     .subscribe(
@@ -50,7 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token)
         this._router.navigate(['/countries'])
       },
-      err => console.log(err)     
+      err => (err)     
     )
   }
 

@@ -24,8 +24,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
     const countryIdFromRoute = String(routeParams.get('_id'));
-
-    console.log('click details');
+    
     this.matomoTracker.trackEvent(
       'details',
       'details link Pressed',

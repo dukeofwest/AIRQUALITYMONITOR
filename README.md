@@ -1,7 +1,7 @@
 # AIRQUALITYMONITOR
 An air quality monitoring application which makes it possible for everyone to check the air quality in their cities.
-To run the project, run `npm run start`. This runs the server and client concurrently.
-To build the project using Docker, change directory into client then run `docker-compose build airquality-service`.
+* To run the project, first clone or fork the project, then `npm i` to install dependencies, and then run `npm run start`. This runs the server and client concurrently.
+* To build the project using Docker, change directory into client then run `docker-compose build airquality-service`.
 Alternatively, from your project directory(client), run `docker-compose up` to build the app with the updated Compose file, and run it.
 
 
