@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@angular/service-worker": "~12.2.0",
+    "ngx-infinite-scroll": "^10.0.1",
     "ngx-matomo": "^1.0.0-rc.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",

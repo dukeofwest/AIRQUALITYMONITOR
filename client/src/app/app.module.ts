@@ -17,6 +17,7 @@ import { MatomoModule } from "ngx-matomo";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule} from '@angular/forms'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReactiveFormsModule} from '@angular/forms'
   ],
   imports: [
     BrowserModule,
+    InfiniteScrollModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
